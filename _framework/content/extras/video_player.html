@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- saved from url=(0014)about:internet -->
+<!--<meta http-equiv="expires" content="Mon, 06 Jan 2090 00:00:01 GMT" />-->
+<meta 	http-equiv="Cache-Control" 	content="public"/>
+<meta 	http-equiv="Content-Type" 	content="text/html; charset=utf-8">
+<script src="../js/lib/jquery-1.12.3.min.js"	language="javascript"></script>
+<style type="text/css">
+body {	margin: 0px; }
+#videoPlayer{
+	position: absolute;	opacity: 0;
+	width: 1024px;	height: 660px;
+}
+#videoContent{
+	position: absolute;	z-index: 2;
+	width: 854px;	height: 480px;
+	margin-left: -427px;	margin-top: -200px;
+	left: 50%;	top: 50%;
+}
+</style>
+<script>
+	function setVideoSrc(arg){
+		//Indicado em todos htmls de extra para redimensionar quando mobile
+		if(parent.Main) if(parent.Main.isMobile) $('#videoPlayer').css('width', $(parent.window).width() ); 
+		
+		$('#theVideo > source').attr('src', '../files/' + arg + '.mp4');
+		$('#videoPlayer').animate( {opacity: '1'}, 500);
+		$('#theVideo')[0].load();
+
+		var vid = document.getElementById("theVideo");
+		vid.onended = function() {
+		   	if(parent.Player) parent.Player.doSeguir("sem flag");
+		}
+	}
+</script>
+</head>
+
+<body>
+	<div id="videoPlayer">
+		<div id="videoContent">
+			<video id="theVideo" width="854" height="480" controls preload="auto">
+				<source src="" type="video/mp4">
+			</video>
+		</div>
+	</div>
+</body>
+</html>

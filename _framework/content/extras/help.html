@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- saved from url=(0014)about:internet -->
+<!--<meta http-equiv="expires" content="Mon, 06 Jan 2090 00:00:01 GMT" />-->
+<meta 	http-equiv="Cache-Control" 	content="public"/>
+<meta 	http-equiv="Content-Type" 	content="text/html; charset=utf-8">
+
+<link 	href="../styles/font/font.css" rel="stylesheet" type="text/css">
+<script src="../js/lib/jquery-1.12.3.min.js"	language="javascript"></script>
+
+<style type="text/css">
+body {
+	margin: 0px; 	
+    font-family: 'default_font', Arial, Calibri, Verdana, Geneva, sans-serif; 
+}
+#helpContainer{
+	position: absolute;
+	display: none;
+	z-index: 5;
+}
+#help{
+	position: absolute;
+	width: 1024px;
+	height: 660px;
+	display: none;
+}
+#background{
+	position: absolute;
+	width: 1024px;
+	height: 660px;
+
+	background-color: #000000;
+	opacity: 0.6;
+}
+#box{
+	position: absolute;
+	width: 280px;
+	height: 180px;
+
+	background-color: #FFFFFF;
+
+	top: 50%;
+	left: 50%;
+
+	margin-left: -140px;
+	margin-top: -90px;
+
+	border-radius: 2px;
+
+	-webkit-box-shadow: 2px 2px 6px 0px #222222;
+	-moz-box-shadow: 2px 2px 6px 0px #222222;
+	box-shadow: 2px 2px 6px 0px #222222;
+}
+#title{
+	position: relative;
+	font-size: 20px;
+	font-weight: bold;
+
+	left: 16px;
+	margin-top: 16px;
+
+	color: #333333;
+	cursor: default;
+}
+#explain{
+	position: relative;
+	font-size: 16px;
+
+	width: 248px;
+
+	left: 16px;
+	margin-top: 16px;
+
+	color: #333333;
+	cursor: default;
+
+	opacity: 1;
+}
+.ballOnHelp{
+	position: relative;
+	float: left;
+	width: 10px;
+	height: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 3px;
+
+	background-color: rgba(77, 77, 77, 1);
+
+	border-style: solid;
+	border-color: #8c8c8c;
+	border-width: 1px;
+	border-radius: 50%;
+}
+.ballOffHelp{
+	position: relative;
+	float: left;
+	width: 10px;
+	height: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 3px;
+
+	background-color: rgba(77, 77, 77, 0.3);
+
+	border-style: solid;
+	border-color: #8c8c8c;
+	border-width: 1px;
+	border-radius: 50%;
+}
+#balls{
+	position: absolute;
+	top: 146px;
+
+	width: 162px;
+	height: 22px;
+
+	margin-left: -81px;
+	left: 50%;
+}
+
+.arrow {
+	position: relative;
+	display: inline-block;
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent; 
+	border-right: 5px solid white; 
+	margin-left: 4px;
+}
+
+.arrowBall{
+	position: relative;
+	float: left;
+	width: 16px;
+	height: 16px;
+
+	background-color: rgba(77, 77, 77, 1);
+
+	border-style: solid;
+	border-color: #8c8c8c;
+	border-width: 1px;
+	border-radius: 50%;
+
+	margin-right: 4px;
+	margin-left: 4px;
+
+	cursor: pointer;
+}
+
+#nextArrow{
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+
+#quitHelp{
+	position: absolute;
+
+	width: 20px;
+	height: 20px;
+
+	background-color: rgba(38, 38, 38, 1);
+	color: #FFFFFF;
+
+	text-align: center;
+
+	border-style: solid;
+	border-color: #8c8c8c;
+	border-width: 1px;
+	border-radius: 50%;
+
+	top: -10px;
+	left: 270px;
+
+	cursor: pointer;
+}
+
+#xButton{
+	padding-top: 2.2px;
+}
+</style>
+<script>
+var Help = {
+	//Array com as dicas / [0] div, [1] espanhol, [2] inglês
+	tips: [
+			["Utilize as <b>setas laterais</b> para avançar ou voltar ao conteúdo anterior.", 
+			"Usa las <b>flechas laterales</b> para avanzar o volver al contenido anterior.", 
+			"Use the <b>side arrows</b> to advance or return to the previous content."], 
+
+			["A <b>legenda</b> aparecerá na parte inferior da tela. As <b>bolinhas</b> abaixo da legenda indicam quantas falas existem nesta cena.", 
+			"El <b>leyenda</b> aparece en la parte inferior de la pantalla. Los <b>puntos</b> por debajo de la leyenda, indican el número de líneas que hay en esta escena.", 
+			"The <b>caption</b> appears at the bottom of the screen. The <b>dots</b> below the legend indicate how many lines there are in this scene."], 
+
+			["O <b>nome do treinamento</b> estará no topo.", 
+			"La <b>nombre de Entrenamiento</b> será en la parte superior.", 
+			"The <b>Training name</b> will be at the top."], 
+
+			["<b>Abaixo do nome</b>, você verá em qual parte está do treinamento e o assunto abordado.", 
+			"<b>Bajo el nombre</b>, verá qué parte es la formación y la materia.", 
+			"<B>Below the name</b>, you'll see which part is the training and the subject matter."], 
+
+			["Deixe o <b>mouse sobre o item</b> para ver sua definição.", 
+			"Deje que el <b>puntero del ratón sobre el elemento</b> para ver su definición.", 
+			"Let the <b>mouse over the item</b> to see its definition."]
+		],
+
+	currentTip: -1,
+	curLanguage: 0,
+
+	init: function(){
+		//Indicado em todos htmls de extra para redimensionar quando mobile
+		if(parent.Main) if(parent.Main.isMobile) $('#help').css('width', $(parent.window).width() ); 
+
+		$('#help').css('display', 'block');
+
+		if(parent.Player){
+			$('#quitHelp').click(parent.Player.closePopUp);
+			$('#background').click(parent.Player.closePopUp);
+		}
+
+		Help.writeTip("goOn");
+	},
+
+	writeTip: function(arg){
+		$("#prevArrow").off();
+		$("#nextArrow").off();
+
+		if(arg == "goOn"){
+			if(Help.currentTip != (Help.tips.length-1)){
+				Help.currentTip += 1;
+			}else{
+				return;
+			}
+		}else{
+			if(Help.currentTip != 0){
+				Help.currentTip -= 1;
+			}else{
+				return;
+			}
+		}
+
+		if(parent.Main){
+			if(parent.Main.idioma == 'ES') {
+				Help.curLanguage = 1;
+				$('#title').html('Cómo navegar por el curso?');
+			}
+
+			if(parent.Main.idioma == 'IN') {
+				Help.curLanguage = 2;
+				$('#title').html('How to navigate the course?');
+			}
+		}
+
+		$("#explain").html(Help.tips[Help.currentTip][Help.curLanguage]);
+		$('#explain').css("opacity", "0");
+		$('#explain').animate( {opacity: '1'}, 200);
+		
+		Help.updateBalls();
+
+		$("#nextArrow").css("opacity", Help.currentTip == Help.tips.length-1 ? "0.3" : "1");
+		$("#prevArrow").css("opacity", Help.currentTip == 0 ? "0.3" : "1");
+	},
+
+	updateBalls: function(){
+		for(var w = 0; w < Help.tips.length; w++){
+			$("#" + w + "_help").attr("class", "ballOffHelp");
+			if(w == Help.currentTip) $("#" + w + "_help").attr("class", "ballOnHelp");
+		}
+	}
+}
+</script>
+</head>
+<body onLoad="Help.init();">
+	<div id="help">
+		<div id="background"></div>
+		<div id="box">
+			<div id="quitHelp"><div id="xButton">X</div></div>
+			<div id="content">
+				<div id="title">Como navegar pelo curso?</div>
+				<div id="explain"></div>
+			</div>
+			<div id="balls">
+				<div id="prevArrow" class="arrowBall" onClick="Help.writeTip('goBack')">
+					<div class="arrow"></div>
+				</div>
+				<div id="0_help" class="ballOffHelp"></div>
+				<div id="1_help" class="ballOffHelp"></div>
+				<div id="2_help" class="ballOffHelp"></div>
+				<div id="3_help" class="ballOffHelp"></div>
+				<div id="4_help" class="ballOffHelp"></div>
+				<div id="nextArrow" class="arrowBall" onClick="Help.writeTip('goOn')">
+					<div class="arrow"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

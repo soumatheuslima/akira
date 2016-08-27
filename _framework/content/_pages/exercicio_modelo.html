@@ -1,0 +1,118 @@
+<html>
+<head>
+<!-- saved from url=(0014)about:internet -->
+<!--<meta http-equiv="expires" content="Mon, 06 Jan 2090 00:00:01 GMT" />-->
+<meta 	http-equiv="Cache-Control" 			content="public"/>
+<meta 	http-equiv="Content-Type" 			content="text/html; charset=utf-8">
+<link 	href="../styles/font/font.css" rel="stylesheet" type="text/css">
+<link 	href="../styles/exercicio.css" rel="stylesheet" type="text/css">
+<link 	href="../styles/legenda.css"   rel="stylesheet" type="text/css"> <!--para usar o css das balls-->
+<script src="../js/lib/jquery-1.12.3.min.js"	language="javascript"></script>
+<script src="../js/fun/Exercise.js"				language="javascript"></script>
+
+<style type="text/css">
+	body{
+		margin: 0px; overflow: hidden;
+		-moz-user-select: -moz-none; 		
+		-khtml-user-select: none;
+	    -webkit-user-select: none; 	    
+	    -ms-user-select: none; 	    
+	    user-select: none; 
+	    font-family: 'default_font', Arial, Calibri, Verdana, Geneva, sans-serif; 
+	}
+</style>
+<script language="javascript">
+
+	var tipo = "exercicio" //Tipo do teste: 'exercicio', 'avaliacao'.
+	var numeroDeTentativas = 3; //Número de tentativas das questões.
+	var feedbackParaCadaQuestao = true; //Tera feedback para cada questão?
+	var mostrarRespostaCorreta = true; //Irá mostrar as respostas corretas na revisão?
+	var mostrarFeedbackCaution = true; //Irá mostrar feedback de que ele ainda pode tentar?
+
+	//INTRODUCAO do exercicio
+	var textoDeIntroducao = "<h1>Exercicio de Fixação</h1> Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ornare euismod sapien, quis dignissim lacus finibus nec. <p> Proin nisi massa, lobortis fermentum ante et, tincidunt auctor lorem. Duis commodo tincidunt porttitor. Donec pellentesque sapien in tellus luctus convallis.</p>";
+
+	//Crie um objeto para cada questão do exercicio:
+	//MODELO COM UMA ALTERNATIVA CORRETA--------------------------------------------------
+	var exercise_1 = {
+		enun: "QUAL É O CHOCOLATE MAIS QUERIDO DO BRASIL 1?",
+		choices: ["Verdadeiro 1", "Falso 2"],
+		randomizeChoices: true,
+		correctAnswer: [1, 2],
+		img: 'exe_1', //Imagem com medida maxima de 880px / 160px em png, colocar em 'styles/img/exe';
+		feedback: {
+			positive: "Parabéns! Você sabe qual é o chocolate mais gostoso do baguio!",
+			caution: "Cuidado! Você errou, mas ainda pode tentar!",
+			negative: "Atenção! Você não sabe qual é o chocolate mais gostoso do baguio!"
+		}
+	}
+	//-------------------------------------------------------------------------------------
+
+
+	//MODELO COM VARIAS ALTERNATIVAS CORRETAS----------------------------------------------
+	var exercise_2 = {
+		enun: "QUAL É O CHOCOLATE MAIS QUERIDO DO BRASIL 2?",
+		choices: ["Chocolin - c 1", "Nestle - c 2", "Jaque 3", "Brigadeiro feliz 4", "Turminha alegre - c 5"],
+		correctAnswer: [1, 2, 5],
+		randomizeChoices: true,
+		img: null, //Imagem com medida maxima de 880px / 160px em png, colocar em 'styles/img/exe';
+		feedback: {
+			positive: "Parabéns! Você sabe qual é o chocolate mais gostoso do baguio!",
+			caution: "Cuidado! Você errou, mas ainda pode tentar!",
+			negative: "Atenção! Você não sabe qual é o chocolate mais gostoso do baguio!"
+		}
+	}
+	//-------------------------------------------------------------------------------------
+
+
+	//MODELO COM UMA ALTERNATIVA CORRETA E FEEDBACK ESPECIFICO PARA CADA ALTERNATIVA-------
+	var exercise_3 = {
+		enun: "QUAL É O CHOCOLATE MAIS QUERIDO DO BRASIL 3?",
+		choices: ["Nestle 1", "Chocolin - c 2", "Jaque 3", "Brigadeiro feliz 4", "Turminha alegre 5"],
+		correctAnswer: [2],
+		randomizeChoices: true,
+		img: 'exe_1', //Imagem com medida maxima de 880px / 160px em png, colocar em 'styles/img/exe';
+		feedback: {
+			_1: "Nestle não é muito elegante!",
+			_2: "Parabéns! Você sabe qual é o chocolate mais gostoso do baguio!",
+			_3: "Jaque pode pá, mas não ta certo nesse caso.",
+			_4: "Brigadeiro feliz na cadeia!",
+			_5: "Turminha alegre? Que isso?"
+		}
+	}
+	//-------------------------------------------------------------------------------------*/
+
+
+</script>
+</head>
+<body onload= "Exercise.init(); Exercise.countQuestions(); ">
+	<div id="exeBackground">
+		<div id="contentBox">
+			<div id="exeIntro"></div>
+			<div id="exeQuestions">
+				<div id="exeEnun"></div>
+				<div id="exeImgContent"></div>
+				<div id="exeChoices"></div>
+				<div id="BtClearChoices"><i><b>Clique aqui</b> caso queira resetar suas escolhas.</i></div>
+				<div id="exeConfirm"></div>
+				<div id="exeNext"></div>
+			</div>
+
+			<div id="exeResult"></div>
+			<div id="exeInit"></div>
+			<div id="exeReview"></div>
+			<div id="exeCourseReview"></div>
+
+		</div>
+	</div>
+	<div id="exeFeedback">
+		<div id="exeFeedbackBackground">
+		<div id="contentFeedbackBox">
+			<div id="closeFeedback">Feedback<div id="exeFeedbackX">X</div></div>
+			<div id="contentFeedback"></div>
+		</div>
+		</div>
+	</div>
+</body>
+
+</html>
