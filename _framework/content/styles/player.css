@@ -50,9 +50,6 @@
 	margin-right: 18px;
 	background-image: url(img/menu.png);
 }
-/*------------------------------------*/
-
-
 /*-----------------------------NAVEGACAO*/
 .navigationClass{
 	cursor: pointer; position: relative;
@@ -82,8 +79,6 @@
 	float: right;
 }
 
-/*------------------------------------*/
-
 /*---------------------------ABERTURA*/
 #introFrame, #aberturaDiv{
 	position: absolute;
@@ -97,8 +92,6 @@
 	background-color: rgba(0, 0, 0, 0);
 	z-index: 4;
 }
-
-/*------------------------------------*/
 
 /*----------------------------CONTEUDO*/
 #pageFrame{
@@ -121,9 +114,6 @@
 	left: 50%;	top: 50%; 
 	background-image: url(img/loader.gif)
 }
-/*------------------------------------*/
-
-
 /*-----------------------JANELAS EXTRA*/
 #popFrames{
 	position: absolute;
@@ -144,5 +134,3 @@
 	left: 0px;
 	z-index: 0;
 }
-/*------------------------------------*/
-

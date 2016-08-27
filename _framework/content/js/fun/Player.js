@@ -225,7 +225,7 @@ var Player = {
 		$('#nextPage').css('display', 'block'); //Mostro o botão avançar;
 
 		//caso não foi vista
-		Player.mostrarSeguir = true;	//$('#nextPage').css('display', 'none');
+		Player.mostrarSeguir = true;
 	},
 
 	//Mudar o 'display' dos botões de navegação

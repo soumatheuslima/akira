@@ -1,11 +1,8 @@
-
-
 #preloader{
 	position: absolute;
 	z-index: 30;
 	cursor: default;
 }
-
 #loading{
 	background-color: #ffffff;
 	height: 100%;
@@ -47,13 +44,11 @@
 	-webkit-animation: animate 1s infinite ease-in-out;
 	animation: animate 1s infinite ease-in-out;
 }
-
 @-webkit-keyframes animate {
   0% { -webkit-transform: perspective(160px); }
   50% { -webkit-transform: perspective(160px) rotateY(-180deg); }
   100% { -webkit-transform: perspective(160px) rotateY(-180deg) rotateX(-180deg); }
 }
-
 @keyframes animate {
   0% { 
     transform: perspective(160px) rotateX(0deg) rotateY(0deg);
