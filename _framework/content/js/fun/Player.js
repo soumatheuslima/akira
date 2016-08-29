@@ -239,7 +239,8 @@ var Player = {
 		Player.frameToGo = Player.pagesArray[Player.currentPage-1][ Player.pagesArray[Player.currentPage-1].length-1 ];
 		Player.pagesArray[Player.currentPage-1].pop();
 
-		$('#pageFrame')[0].contentWindow.exportRoot.gotoAndStop(Player.frameToGo);
+		//$('#pageFrame')[0].contentWindow.exportRoot.gotoAndStop(Player.frameToGo);
+		$('#pageFrame')[0].contentWindow.exportRoot.gotoAndPlay(Player.frameToGo-1);
 	},
 
 	//atualizo a tela e elementos necessarios 
