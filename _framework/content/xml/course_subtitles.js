@@ -13,9 +13,9 @@ var character = 'locutor_mc'; //Nome do personagem
 subtitleArray.push(
 
 	//tela
-	new Array('declarar_tela_01.html',
+	new Array('nome_do_arq_01.html',
 		new Array('1', character, 
-			''), 
+			'aaaa'), 
 
 		new Array('2', character, 
 			''),
@@ -40,7 +40,7 @@ subtitleArray.push(
 	),
 
 	//tela
-	new Array('declarar_tela_02.html',
+	new Array('nome_do_arq_02.html',
 		new Array('1', character, 
 			''), 
 
