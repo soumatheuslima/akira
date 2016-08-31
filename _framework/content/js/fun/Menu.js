@@ -115,6 +115,7 @@ var Menu = {
 		var menu = $('#courseMenu');	
 		var menuButton = $('#menuButton');
 		menuButton.off(); //enable false
+		menu.stop(); //Paro aniamção
 		if(menu.css("display") == 'none'){
 			menu.css('display', 'block');
 			menu.animate( {opacity: '1', left: '0'}, 300, 
