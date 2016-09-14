@@ -123,8 +123,15 @@ var Subtitle = {
 
 	avatarShutUp: function (){
 		if(Subtitle.theAvatar == null) return;
-		var curAvatar = "$('#pageFrame')[0].contentWindow.exportRoot." + Subtitle.theAvatar;
+		
 		if(eval("$('#pageFrame')[0].contentWindow.exportRoot." + Subtitle.theAvatar)){
+			var curAvatar = "$('#pageFrame')[0].contentWindow.exportRoot." + Subtitle.theAvatar;
+			eval(curAvatar + ".gotoAndStop(0)");
+			eval(curAvatar + ".head_mc.mouth_mc.gotoAndStop(0)");
+		};
+
+		if(eval("$('#pageFrame')[0].contentWindow.exportRoot.bolota_mc")){
+			var curAvatar = "$('#pageFrame')[0].contentWindow.exportRoot.bolota_mc." + Subtitle.theAvatar;
 			eval(curAvatar + ".gotoAndStop(0)");
 			eval(curAvatar + ".head_mc.mouth_mc.gotoAndStop(0)");
 		};
@@ -136,7 +143,7 @@ var Subtitle = {
 			eval(curAvatar + ".play()");
 			eval(curAvatar + ".head_mc.mouth_mc.play()");
 		}
-		if(eval("$('#pageFrame')[0].contentWindow.exportRoot.bolota_mc." + Subtitle.theAvatar)){
+		if(eval("$('#pageFrame')[0].contentWindow.exportRoot.bolota_mc")){
 			var curAvatar = "$('#pageFrame')[0].contentWindow.exportRoot.bolota_mc." + Subtitle.theAvatar;
 			eval(curAvatar + ".play()");
 			eval(curAvatar + ".head_mc.mouth_mc.play()");
