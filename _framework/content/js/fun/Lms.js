@@ -24,15 +24,13 @@ var Lms = {
 		parent.doLMSCommit();
 	},
 	callBookmark: function(){
-		if(!Main.bookmarkOn) return;
-		
 		var msgToShow = "Deseja retornar a última tela visitada?";
 		if(Main.idioma == "ES") msgToShow = "Quieren volver a la última pantalla visitado?";
 		if(Main.idioma == "IN") msgToShow = "Want to return to last visited screen?";
 
 		if(confirm(msgToShow)){
 			var string = Lms.LMSLocation.split("/");
-			Player.updatePage(string[0], 'next');
+			Player.currentPage = parseInt(string[0]);
 		}
 	}
 }
