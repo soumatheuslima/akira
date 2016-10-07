@@ -556,12 +556,16 @@ p.nominalBounds = new cjs.Rectangle(-85.2,-24.2,170.5,48.4);
 		exportRoot.stop();
 		_this.visible = false;
 		
+		
 		//Script para finalizar tela liberando o botão 'avançar tela'
 		if(parent.Player)parent.Player.enableNextPage();
 	}
+	this.frame_1 = function() {
+		this.stop();
+	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1).call(this.frame_1).wait(1));
 
 	// Camada 1
 	this.shape = new cjs.Shape();
@@ -606,7 +610,7 @@ p.nominalBounds = new cjs.Rectangle(-85.2,-24.2,170.5,48.4);
 	this.shape_10 = new cjs.Shape();
 	this.shape_10.graphics.f("rgba(255,255,255,0.898)").s().p("AqQDoQgyAAAAgzIAAlpQAAgzAyAAIUhAAQAyAAAAAzIAAFpQAAAzgyAAg");
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_10},{t:this.shape_9},{t:this.shape_8},{t:this.shape_7},{t:this.shape_6},{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape}]}).wait(1));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.shape_10},{t:this.shape_9},{t:this.shape_8},{t:this.shape_7},{t:this.shape_6},{t:this.shape_5},{t:this.shape_4},{t:this.shape_3},{t:this.shape_2},{t:this.shape_1},{t:this.shape}]}).wait(2));
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(-71.7,-24.2,143.5,48.4);
