@@ -18,7 +18,7 @@ var Exercise = {
 	
 	countQuestions: function(){
 		//Conto o total de questões
-		while(eval("exercise_" + (Exercise.totalQuestions+1) )){
+		while(window["exercise_" + (Exercise.totalQuestions+1)]){
 			Exercise.allUserAnswers.push(new Array());
 			Exercise.totalQuestions += 1;
 		}
