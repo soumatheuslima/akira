@@ -29,6 +29,11 @@ body {	margin: 0px; }
 		$('#theVideo')[0].load();
 
 		var vid = document.getElementById("theVideo");
+		//Variável que habilita o video à iniciar automaticamente
+		vid.autoplay = true;
+		//Váriavel que esconde/mostra os controle de play/pause/volume do player de vídeo
+		vid.controls = false;
+		
 		vid.onended = function() {
 		   	if(parent.Player) parent.Player.doSeguir("sem flag");
 		}
